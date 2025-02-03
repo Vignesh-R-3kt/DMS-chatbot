@@ -24,7 +24,19 @@ export class FilesService {
     this.filesList = this.filesList.filter((file: any) => {
       return file.name !== name;
     });
-
     this.files$.next(this.filesList);
+  }
+
+  downloadFile(name: string) {
+    const file = this.filesList.find((file: any) => file.name === name);
+    if (file) {
+      const downloadBtn: any = document.createElement("a");
+      const fileURL = URL.createObjectURL(file);
+
+      downloadBtn.href = fileURL;
+      downloadBtn.download = file.name;
+      downloadBtn.textContent = file.name;
+      downloadBtn.click();
+    }
   }
 }

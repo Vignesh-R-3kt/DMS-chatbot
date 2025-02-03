@@ -57,14 +57,8 @@ export class FileUploadComponent {
     }
   }
 
-  handleDownloadFile(file: any) {
-    const downloadBtn: any = document.createElement("a");
-    const fileURL = URL.createObjectURL(file);
-
-    downloadBtn.href = fileURL;
-    downloadBtn.download = file.name;
-    downloadBtn.textContent = file.name;
-    downloadBtn.click();
+  handleDownloadFile(name: string) {
+    this.filesService.downloadFile(name);
   }
 
 }
