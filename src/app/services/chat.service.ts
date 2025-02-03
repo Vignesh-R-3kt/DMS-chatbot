@@ -28,6 +28,6 @@ export class ChatService {
   }
 
   private setStorage() {
-    // localStorage.setItem('chatList', JSON.stringify(this.chatList));
+    localStorage.setItem('chatList', JSON.stringify(this.chatList));
   }
 }

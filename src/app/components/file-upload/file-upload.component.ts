@@ -16,12 +16,12 @@ export class FileUploadComponent {
   @ViewChild('uploadInput') inputRef?: ElementRef;
   chatIcon: string = 'assets/chat-bot.png';
   uploadedItem?: any;
-  filesList$: any[] = [];
+  filesList: any[] = [];
   files: any = []
 
   constructor(private snackbar: MatSnackBar, private filesService: FilesService) {
     filesService.getFilesList().subscribe((res: any) => {
-      this.filesList$ = res;
+      this.filesList = res;
     })
   }
 
