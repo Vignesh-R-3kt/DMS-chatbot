@@ -11,7 +11,7 @@ interface Chat {
 })
 export class ChatService {
 
-  private chatList: any[] = [];
+  private chatList: any[] = JSON.parse(localStorage.getItem('chatList') || '[]');
 
   private chats$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.chatList);
 
@@ -24,5 +24,10 @@ export class ChatService {
   addNewChat(chat: Chat) {
     this.chatList.push(chat);
     this.chats$.next(this.chatList);
+    this.setStorage();
+  }
+
+  private setStorage() {
+    localStorage.setItem('chatList', JSON.stringify(this.chatList));
   }
 }
