@@ -30,9 +30,12 @@
           background: none;
           padding: 20px 12px 20px 20px;
           font-size: 18px;
+        }
 
-          &::placeholder {
-            font-size: 16px;
+        @media (max-width: 768px) {
+          input {
+            padding: 14px 8px 14px 14px;
+            font-size: 14px;
           }
         }
       }

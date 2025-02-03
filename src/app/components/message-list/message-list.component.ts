@@ -18,6 +18,11 @@ export class MessageListComponent {
   constructor(private chatService: ChatService) {
     this.chatService.getChatList().subscribe((res: any[]) => {
       this.chatList = res;
+      setTimeout(() => {
+        if (this.chatContainerRef?.nativeElement) {
+          this.chatContainerRef.nativeElement.scrollTop = this.chatContainerRef.nativeElement.scrollHeight;
+        }
+      }, 0);
     })
   }
 
