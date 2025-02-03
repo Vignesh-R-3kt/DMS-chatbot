@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class FilesService {
 
   private filesList: any[] = [];
-  private files$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.filesList);
+  private files$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   constructor() { }
 

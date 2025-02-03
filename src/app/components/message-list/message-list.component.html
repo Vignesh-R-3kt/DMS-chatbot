@@ -1,1 +1,14 @@
-<p>message-list works!</p>
+<div class="container">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <ul>
+                @for (chat of chatList; track $index) {
+                <li [ngClass]="{'user': chat.type === 'user'}">
+                    <img [src]="chat.type === 'user' ? userIcon : chatIcon" alt="chat-icon">
+                    <p>{{chat.message}}</p>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

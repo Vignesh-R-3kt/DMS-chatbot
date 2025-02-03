@@ -1,1 +1,14 @@
-<p>chat-window works!</p>
+<div class="container">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="chat-header">
+                <button routerLink="/file-upload" mat-mini-fab><mat-icon>keyboard_arrow_left</mat-icon></button>
+                <h4><img [src]="chatIcon" alt="chat-icon">
+                    <span>Chat Bot</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+<app-message-list></app-message-list>
+<app-message-input></app-message-input>
