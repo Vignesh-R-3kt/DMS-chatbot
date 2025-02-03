@@ -1,1 +1,51 @@
-<p>file-upload works!</p>
+<div class="upload-container container">
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <h3>Upload documents</h3>
+            <div class="input-wrapper" [ngClass]="{'active': uploadedItem}">
+                <input #uploadInput accept=".pdf, .docx, .jpg, .jpeg, .png" type="file"
+                    (change)="handleFileInput($event)">
+                @if (uploadedItem) {
+                <p>{{uploadedItem.name}}</p>
+                } @else {
+                <p>
+                    <span>Click to upload</span>
+                    <span>or</span>
+                    <span>drag and drop</span>
+                </p>
+                }
+            </div>
+            <div class="btns-wrapper">
+                <button mat-raised-button [disabled]="!uploadedItem" (click)="handleAddNewFile()">Upload</button>
+                <button mat-raised-button [disabled]="!uploadedItem" (click)="clearInputfield()">Remove</button>
+            </div>
+        </div>
+        @if (filesList$.length) {
+        <div class="content-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl no</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(item of filesList$; track $index){
+                    <tr>
+                        <td>{{$index + 1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>
+                            <button mat-mini-fab (click)="handleDownloadFile(item)"><mat-icon
+                                    fontIcon="download"></mat-icon></button>
+                            <button mat-mini-fab (click)="handleFileRemoval(item.name)"><mat-icon
+                                    fontIcon="delete"></mat-icon></button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+</div>
