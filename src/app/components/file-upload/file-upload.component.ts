@@ -4,16 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilesService } from '../../services/files.service';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-file-upload',
-  imports: [MatButtonModule, NgClass, MatSnackBarModule, MatIconModule],
+  imports: [MatButtonModule, NgClass, MatSnackBarModule, MatIconModule, RouterLink],
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.scss'
 })
 export class FileUploadComponent {
-  uploadedItem?: any;
   @ViewChild('uploadInput') inputRef?: ElementRef;
+  chatIcon: string = 'assets/chat-bot.png';
+  uploadedItem?: any;
   filesList$: any[] = [];
   files: any = []
 
